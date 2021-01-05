@@ -1,6 +1,7 @@
 import React from "react"
 import { Link } from "gatsby"
 import Button from "@material-ui/core/Button"
+import NavItem from "./NavItem/NavItem"
 import HomeIcon from "@material-ui/icons/Home"
 import CreateIcon from "@material-ui/icons/Create"
 import AccountCircleIcon from "@material-ui/icons/AccountCircle"
@@ -20,18 +21,21 @@ const NavBar: React.FC = () => {
     postition: "relative",
   }
 
+  const homeIcon = <HomeIcon style={{ color: "dodgerblue" }} />
+
   return (
     <div className="Div">
       <ul className="List">
         <li className="ListItem">
+          {/*
+
           <Link className="Link" to="/">
-            <Button
-              startIcon={<HomeIcon style={{ color: "dodgerblue" }} />}
-              className="Button"
-            >
+            <Button startIcon={} className="Button">
               HOME
             </Button>
           </Link>
+				*/}
+          <NavItem to="/" cname="button" startIcon={homeIcon} text="HOME" />
         </li>
         <li className="Divider">|</li>
         <li className="ListItem">
