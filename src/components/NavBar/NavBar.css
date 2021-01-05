@@ -1,0 +1,78 @@
+.List {
+	list-style: none;
+	position: relative;
+	display: flex;
+	flex-flow: row;
+	justify-content: center;
+	margin-bottom: 0px;
+	text-align: center;
+	left: -12px;
+	top: -1px;
+}
+
+.ListItem {
+	display: inherit;
+	margin: 0px 10px 0 10px;
+	text-align: center;
+	position: inherit;
+	left: 5px;
+	top: -3px;
+}
+
+.Divider {
+	display: flex;
+	flex-flow: row;
+	justify-content: center;
+	font-weight: bold;
+	font-size: x-large;
+	position: relative;
+	top: -2.5px;
+}
+
+.Link {
+	text-decoration: none;
+	color: rgba(192, 97, 19, 0.945);
+	font-weight: bold;
+	text-align: center;
+	font-size: x-large;
+	position: relative;
+}
+
+.Link:hover {
+	color: rgb(77, 192, 77);
+}
+
+/* .Link:active {
+	color: dodgerblue;
+} */
+
+.Div {
+	background-color: inherit;
+	display: flex;
+	/* justify-content: right; */
+	float: inline-end;
+	width: 100%;
+	padding: 0px;
+	margin-top: 0px;
+}
+
+@media (max-width: 800px) {
+	.Div {
+		display: none;
+	}
+}
+
+.Spinner {
+	position: relative;
+	top: 10rem;
+}
+
+.Button {
+	position: relative;
+	top: -10px;
+}
+
+.ListItem:hover {
+	opacity: 0.9;
+	filter: alpha(opacity=90);
+}
