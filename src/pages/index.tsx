@@ -1,22 +1,109 @@
-import React from "react"
-import { Link } from "gatsby"
+import React, { useState, useEffect } from "react"
+import { Link, graphql, PageProps } from "gatsby"
 
 import Layout from "../components/layout"
-import Image from "../components/image"
 import SEO from "../components/seo"
 
-const IndexPage = () => (
-  <Layout>
-    <SEO title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
-    </div>
-    <Link to="/page-2/">Go to page 2</Link> <br />
-    <Link to="/using-typescript/">Go to "Using TypeScript"</Link>
-  </Layout>
-)
+import "./index.module.css"
+
+interface IndexPageProps extends PageProps {
+  data: {
+    allMarkdownRemark: {
+      edges: {
+        node: {
+          id: string
+          frontmatter: { title: string; date: string; subject: string }
+          excerpt: string
+          timeToRead: string
+          fields: {
+            slug: string
+          }
+        }
+      }[]
+    }
+  }
+}
+
+export const query = graphql`
+  query {
+    allMarkdownRemark(
+      sort: { fields: [frontmatter___id], order: DESC }
+      limit: 2
+      filter: { frontmatter: { hidden: { ne: "yes" } } }
+    ) {
+      edges {
+        node {
+          id
+          frontmatter {
+            title
+            date
+            subject
+          }
+          excerpt
+          timeToRead
+          fields {
+            slug
+          }
+        }
+      }
+    }
+  }
+`
+
+const IndexPage = (props: IndexPageProps) => {
+  const [posts, setPosts] = useState<HTMLDivElement[]>([])
+  const { data } = props
+
+  useEffect(() => {
+    const posts = []
+    data.allMarkdownRemark.edges.map(node => {
+      // console.log(node)
+      posts.push(
+        <div key={node.node.id}>
+          <Link to={node.node.fields.slug} style={{ textDecoration: "none" }}>
+            <h3
+              style={{
+                fontSize: "18px",
+                textDecoration: "none",
+                position: "relative",
+                left: "5px",
+                textAlign: "left",
+                marginTop: "3px",
+                color: "#191E27",
+              }}
+            >
+              {node.node.frontmatter.title}
+              <br />
+              <span
+                style={{
+                  fontSize: "small",
+                  textDecoration: "none",
+                  position: "relative",
+                  left: "5px",
+                  top: "8px",
+                  color: "#1D1A28",
+                }}
+              >
+                {node.node.frontmatter.date} |{" "}
+                <span>{node.node.frontmatter.subject} | </span>
+                <span>{node.node.timeToRead} min read</span>
+              </span>
+            </h3>
+            <hr style={{ marginTop: "5px" }} />
+            <p>{node.node.excerpt}</p>
+          </Link>
+        </div>
+      )
+    })
+    setPosts(posts)
+  }, [data])
+
+  return (
+    <Layout>
+      <SEO title="Home" />
+      {posts}
+    </Layout>
+  )
+}
 
 export default IndexPage
