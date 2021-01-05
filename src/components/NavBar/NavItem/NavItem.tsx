@@ -14,18 +14,15 @@ interface NavItemProps {
 const NavItem: React.FC<NavItemProps> = props => {
   const { to, startIcon, cname, text } = props
   return (
-    <Link
-      style={{
-        textDecoration: "none",
-        color: "rgba(192, 97, 19, 0.945)",
-        fontWeight: "bold",
-        textAlign: "center",
-        fontSize: "x-large",
-        position: "relative",
-      }}
-      to={to}
-    >
-      <Button startIcon={startIcon} className={cname}>
+    <Link to={to}>
+      <Button
+        variant="text"
+        color="secondary"
+        size="large"
+        startIcon={startIcon}
+        className={cname}
+        style={{ fontSize: "x-large" }}
+      >
         {text}
       </Button>
     </Link>

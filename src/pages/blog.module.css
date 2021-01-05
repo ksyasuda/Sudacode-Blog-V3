@@ -1,0 +1,494 @@
+.link {
+  position: relative;
+  text-decoration: none;
+  color: rgba(192, 97, 19, 0.945);
+  font-weight: bold;
+  font-size: x-large;
+}
+
+.PostsCont {
+  padding: 0 20px 0 20px;
+}
+
+.BlogPostsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  position: relative;
+  left: 9%;
+}
+
+.homelink {
+  text-decoration: none;
+  color: rgba(192, 97, 19, 0.945);
+  font-weight: bold;
+  font-size: x-large;
+  width: 20%;
+}
+
+.link:hover,
+.postContainer:hover {
+  background-color: green;
+  color: green;
+}
+
+.Subject {
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.651);
+}
+
+.blog_container {
+  background-color: blue;
+  width: 100%;
+  height: 100%;
+}
+
+.Title,
+.Body {
+  color: black;
+}
+
+.Title {
+  font-size: xx-large;
+  position: relative;
+  top: 7px;
+  left: 5px;
+  /* text-decoration: underline; */
+}
+
+.Body {
+  font-size: large;
+  font-weight: 100;
+  margin-top: -15px;
+  position: relative;
+  left: 5px;
+  top: 8px;
+}
+
+.postContainer {
+  border: 2px solid black;
+  margin: 20px 0px 10px 0px;
+  box-sizing: border-box;
+  padding: 10px 10px 0px 10px;
+  border-radius: 22px;
+  margin-bottom: 3%;
+  position: relative;
+  width: 420px;
+  height: 300px;
+  /* left: 10%; */
+}
+
+.postContainerHome {
+  border: 1px solid black;
+  margin: 20px 0px 10px 0px;
+  box-sizing: border-box;
+  padding: 10px 10px 0px 10px;
+  border-radius: 22px;
+  margin-bottom: 3%;
+  width: 40%;
+  position: relative;
+  left: 30%;
+}
+
+.Line {
+  margin-top: 15px;
+}
+
+.travel {
+  height: 100%;
+  position: relative;
+  z-index: 100;
+  /* top: -30px; */
+}
+
+.content {
+  position: absolute;
+  z-index: 100;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 15%;
+  /* -ms-overflow-style: none; */
+}
+
+/* ::-webkit-scrollbar {
+  display: none;
+} */
+
+.button {
+  width: 100%;
+  color: rgba(192, 97, 19, 0.945);
+  background-color: rebeccapurple;
+  letter-spacing: 1px;
+  font-weight: 500;
+  border: 1px solid black;
+}
+
+.button:hover {
+  color: green;
+}
+
+.button:active {
+  color: dodgerblue;
+}
+
+.navbar {
+  position: relative;
+  background-color: rgb(40, 44, 52);
+  height: 80px;
+  top: -18px;
+}
+
+.gohome {
+  position: relative;
+  background-color: rgb(40, 44, 52);
+  top: 94px;
+  text-align: left;
+  border: none;
+  color: green;
+}
+
+.gohome:hover {
+  color: yellow;
+}
+
+.gohome:active {
+  color: dodgerblue;
+}
+
+.numPosts {
+  position: relative;
+  top: -10px;
+}
+
+@media (max-width: 500px) {
+  .link,
+  .postContainer {
+    width: 98%;
+    left: 1%;
+  }
+}
+
+.BlogPosts {
+  display: inline-block;
+  color: black;
+  font-weight: bold;
+}
+
+.Links {
+  text-decoration: none;
+  color: dodgerblue;
+}
+
+.Links:hover {
+  color: green;
+}
+
+.Breadcrumbs {
+  padding: 10px;
+  position: relative;
+  top: 15px;
+  left: -14px;
+}
+
+.HomeContainer {
+  background-image: url("../images/sudasite2.gif");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  height: 120vh;
+  position: relative;
+  top: -26px;
+  left: -20px;
+  /* top: -26px;
+	left: -20px; */
+  width: 103%;
+  height: 200vh;
+  z-index: 100;
+}
+
+.ContentContainer {
+  position: relative;
+  top: 65px;
+}
+
+.HomePost {
+  background-color: dodgerblue;
+  background-color: #908774;
+  position: relative;
+  width: 40%;
+  margin-bottom: 3%;
+  position: relative;
+  /* top: -250px; */
+  border-radius: 15px;
+  padding: 2px;
+  float: right;
+  align-self: flex-end;
+  /* left: 75.5%; */
+  top: 10px;
+}
+
+.Home1 {
+  position: relative;
+  display: flex;
+  top: 20px;
+  /* background-color: black; */
+}
+
+.Home2 {
+  display: flex;
+  /* background-color: black; */
+  flex-flow: column;
+  position: relative;
+  top: -295px;
+  left: -30px;
+}
+
+.Excerpt {
+  text-align: right;
+  color: dodgerblue;
+  color: rgb(186, 94, 34);
+  position: relative;
+  /* top: -250px; */
+  font-weight: bold;
+  font-size: 16px;
+  position: relative;
+  /* left: 110px; */
+}
+
+.HomeBody {
+  font-size: small;
+  font-weight: 100;
+  margin-top: -15px;
+  position: relative;
+  /* left: 5px; */
+  top: -10px;
+  text-decoration: none;
+  padding: 3px;
+  color: #4e1a83;
+}
+
+.Home {
+  display: flex;
+  position: relative;
+  top: 100px;
+}
+
+.HomeTitle {
+  text-align: center;
+  color: dodgerblue;
+  position: relative;
+  top: 110px;
+  align-content: center;
+}
+
+.HomeSubTitle {
+  text-align: center;
+  font-size: 18px;
+  position: relative;
+  top: 110px;
+  color: #908774;
+  margin-top: 10px;
+}
+
+.TwoPosts {
+  display: flex;
+  float: left;
+}
+
+.Github {
+  position: relative;
+  top: 157px;
+  width: 45%;
+  left: 30px;
+  color: dodgerblue;
+  color: rgb(186, 94, 34);
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  /* background-color: black; */
+}
+
+.GithubText {
+  position: absolute;
+  z-index: 100;
+  top: -30px;
+  left: 54px;
+  width: 100%;
+  text-decoration: none;
+  text-align: left;
+  color: rgb(186, 94, 34);
+}
+
+.GithubText:hover {
+  color: green;
+}
+
+.GithubText:active {
+  color: blue;
+}
+
+.GithubLink {
+  position: absolute;
+  z-index: 100;
+}
+
+.GithubLink:hover {
+  border: 2px solid green;
+}
+
+.CheckOutPosts {
+  position: relative;
+  left: -160px;
+}
+
+/* .BigContainer {
+	background-position: 0 96px;
+} */
+
+.AboutContainer {
+  position: relative;
+  left: 20px;
+}
+
+.AboutParagraph {
+  width: 98%;
+  position: relative;
+  left: -6px;
+  padding: 2px;
+  font-size: 18px;
+}
+
+.BigContainer {
+  background-image: url("https://imgur.com/R2iKpHm.gif");
+  background-repeat: no-repeat;
+  background-position: 0 96px;
+  background-size: 101% 120%;
+}
+
+.WakaTime {
+  display: flex;
+}
+
+.WakaImg {
+  padding: 5px;
+}
+
+@media (max-width: 1080px) {
+  .BigContainer {
+    background-size: 101% 150%;
+  }
+}
+
+@media (max-width: 800px) {
+  .HomeContainer {
+    background-image: url("../images/sudasite2.gif");
+    background-repeat: no-repeat;
+    height: 200vh;
+    position: relative;
+    background-position-y: 67%;
+    /* top: -26px;
+		left: -20px; */
+    width: 100%;
+  }
+  .BigContainer {
+    background-image: none;
+    background-color: rgb(211, 211, 211);
+  }
+}
+
+@media (max-width: 1100px) {
+  .postContainer {
+    width: 98%;
+    height: 200px;
+  }
+  .Home1 {
+    /* left: 250px; */
+  }
+  .GithubText {
+    text-align: center;
+    left: 2px;
+  }
+  .Home2 {
+    /*top: 220px;*/
+    top: -95px;
+    margin-bottom: 200px;
+    right: 250px;
+  }
+  .HomePost {
+    padding: 0px;
+    position: relative;
+    top: 70px;
+  }
+  .CheckOutPosts {
+    left: 24px;
+    top: 30px;
+  }
+  .GithubLink {
+    position: relative;
+    top: 35px;
+  }
+  .BlogPostsContainer {
+    position: relative;
+    left: 5%;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    position: relative;
+  }
+}
+
+@media (max-width: 500px) {
+  .Home1 {
+    position: relative;
+    justify-content: center;
+    top: -20px;
+  }
+  .Github {
+    width: 80%;
+    left: 0px;
+  }
+  .GithubText {
+    text-align: center;
+    position: relative;
+    margin-bottom: -40px;
+    top: -8px;
+  }
+  .Home2 {
+    position: relative;
+    top: 120px;
+    width: 100%;
+    left: 0px;
+    /* left: -253px; */
+    /* right: 285px; */
+    margin-bottom: 200px;
+    justify-content: center;
+  }
+  .HomePost {
+    align-self: center;
+    width: 84%;
+  }
+  .CheckOutPosts {
+    position: relative;
+    top: 77px;
+    left: 12px;
+  }
+  .Excerpt {
+    width: 80%;
+    text-align: center;
+    left: 24px;
+  }
+  .Breadcrumbs {
+    left: 55px;
+  }
+  .postContainer {
+    width: 98%;
+    height: 370px;
+  }
+  .ReadStr {
+    display: none;
+  }
+  .PostsCont {
+    position: relative;
+    left: -20px;
+  }
+}

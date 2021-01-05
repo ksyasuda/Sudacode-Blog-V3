@@ -100,7 +100,11 @@ const IndexPage = (props: IndexPageProps) => {
 
   return (
     <Layout>
-      <SEO title="Home" />
+      <SEO
+        title="Home"
+        lang="English (En-US)"
+        description="Sudacode home page"
+      />
       {posts}
     </Layout>
   )

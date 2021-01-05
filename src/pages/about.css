@@ -1,0 +1,28 @@
+.AboutContainer {
+  position: relative;
+  left: 20px;
+}
+
+.AboutParagraph {
+  width: 98%;
+  position: relative;
+  left: -6px;
+  padding: 2px;
+  font-size: 18px;
+}
+
+.WakaTime {
+  display: flex;
+}
+
+.WakaImg {
+  padding: 5px;
+}
+
+/* For half-screen width pages */
+@media (max-width: 1000px) {
+  .PageContainer {
+    position: relative;
+    left: -12.5%;
+  }
+}

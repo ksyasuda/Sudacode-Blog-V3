@@ -8,6 +8,8 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
+import Helmet from "react-helmet"
+import favicon from "../images/favicon.ico"
 
 import Header from "./Header/header"
 import "./layout.css"
@@ -25,13 +27,17 @@ const Layout: React.FC = ({ children }) => {
 
   return (
     <>
+      <Helmet>
+        <link rel="icon" href={favicon} />
+        <style>{"body { background-color: #b8bbbc }"}</style>
+      </Helmet>
       <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
       <div
         style={{
-          margin: `0 auto`,
           maxWidth: 1700,
           padding: `1.45rem 1.0875rem 1.45rem`,
         }}
+        className="Content"
       >
         <main>{children}</main>
         <footer

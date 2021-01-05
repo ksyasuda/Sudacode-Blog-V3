@@ -26,6 +26,7 @@ const Header: React.FC<HeaderProps> = ({ siteTitle }) => {
       <div
         style={{
           display: "flex",
+          float: "left",
           padding: "21.5px",
         }}
       >
@@ -35,7 +36,13 @@ const Header: React.FC<HeaderProps> = ({ siteTitle }) => {
           </Link>
         </h1>
       </div>
-      <div style={{ float: "left", position: "relative", top: "12px" }}>
+      <div
+        style={{
+          float: "left",
+          position: "relative",
+          top: "44%",
+        }}
+      >
         <NavBar />
         {/* <SideDrawer show={show} clicked={handleMenuToggle} /> */}
       </div>
