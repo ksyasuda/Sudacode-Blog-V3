@@ -595,3 +595,34 @@ pre tt:after {
     font-size: 100%;
   }
 }
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 98%;
+  left: 4%;
+}
+
+@media (max-width: 1000px) {
+  .main-container {
+    position: relative;
+    left: -2px;
+    width: 100%;
+    padding: 10px 10px;
+  }
+}
+
+@media (max-width: 600px) {
+  .main-container {
+    position: relative;
+    width: 100%;
+    padding: 20px 20px;
+    left: 0px;
+  }
+  #footer {
+    position: relative;
+    width: 90%;
+    left: 10px;
+  }
+}

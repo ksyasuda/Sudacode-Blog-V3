@@ -35,18 +35,18 @@ const Layout: React.FC = ({ children }) => {
       <div
         style={{
           maxWidth: 1700,
-          padding: `1.45rem 1.0875rem 1.45rem`,
+          padding: `1.45rem 1.0875rem`,
         }}
-        className="Content"
+        className="main-container"
       >
         <main>{children}</main>
         <footer
           style={{
             marginTop: `10px`,
             position: "relative",
-            right: "10px",
             textAlign: "left",
           }}
+          id="footer"
         >
           © Kyle Yasuda {new Date().getFullYear()}, Built with
           {` `}

@@ -20,9 +20,9 @@
 }
 
 /* For half-screen width pages */
-@media (max-width: 1000px) {
+/* @media (max-width: 1000px) {
   .PageContainer {
     position: relative;
     left: -12.5%;
   }
-}
+} */
