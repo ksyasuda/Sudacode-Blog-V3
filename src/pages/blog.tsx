@@ -93,7 +93,7 @@ const blog: React.FC<BlogProps> = ({ data }) => {
   }
 
   // in-place shuffle algorithm
-  const shuffleArray = arr => {
+  const shuffleArray = (arr: string[]): void => {
     for (let i = arr.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * i)
       const temp = arr[i]
