@@ -1,4 +1,4 @@
-.link {
+#to-blog {
   text-decoration: none;
   position: relative;
   color: rgba(192, 97, 19, 0.945);
@@ -7,14 +7,6 @@
   padding: 10px;
   top: -3px;
   /* background-color: rebeccapurple; */
-}
-
-.link:hover {
-  color: green;
-}
-
-.link:active {
-  color: dodgerblue;
 }
 
 .container {

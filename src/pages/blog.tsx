@@ -1,6 +1,7 @@
 import React from "react"
 import SEO from "../components/seo"
 import { Link, graphql } from "gatsby"
+import BlogPost from "../components/BlogPost/BlogPost"
 import Layout from "../components/layout"
 import "./blog.css"
 // import * as colors from "../components/colors"
@@ -120,52 +121,7 @@ const blog: React.FC<BlogProps> = ({ data }) => {
         <div className="BlogPostsContainer">
           {data.allMarkdownRemark.edges.map(({ node }) => {
             const color = vcolors[count++ % vcolors.length]
-            return (
-              <div className="PostsCont" key={node.id}>
-                <Link
-                  to={node.fields.slug}
-                  className="link"
-                  style={{
-                    backgroundColor: color,
-                  }}
-                >
-                  <div
-                    key={node.id}
-                    style={{ backgroundColor: color }}
-                    className="postContainer"
-                  >
-                    <h3 className="Title" style={{ marginBottom: "2px" }}>
-                      {node.frontmatter.title}
-                      {<br />}
-                      <span
-                        style={{
-                          color: "black",
-                          fontSize: "small",
-                          textDecoration: "none",
-                        }}
-                      >
-                        {node.frontmatter.date} |{" "}
-                        <span className="Subject">
-                          {node.frontmatter.subject}
-                        </span>{" "}
-                        |{" "}
-                      </span>
-                      <span
-                        style={{
-                          fontSize: "small",
-                          fontWeight: "bold",
-                        }}
-                      >
-                        {node.timeToRead} min{" "}
-                        <span className="ReadStr">read</span>
-                      </span>
-                      <hr className="Line" />
-                    </h3>
-                    <p className="Body">{node.excerpt}</p>
-                  </div>
-                </Link>
-              </div>
-            )
+            return <BlogPost node={node} color={color} />
           })}
         </div>
       </>
