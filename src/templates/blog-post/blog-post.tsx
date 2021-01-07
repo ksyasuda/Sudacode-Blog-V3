@@ -36,7 +36,7 @@ export const query = graphql`
 const blogPost: React.FC<BlogPostProps> = ({ data }) => {
   const post = data.markdownRemark
   return (
-    <Layout>
+    <Layout showBackground>
       <SEO
         title={post.frontmatter.title}
         description={post.frontmatter.description}

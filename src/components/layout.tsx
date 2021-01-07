@@ -14,7 +14,12 @@ import favicon from "../images/favicon.ico"
 import Header from "./Header/header"
 import "./layout.css"
 
-const Layout: React.FC = ({ children }) => {
+interface LayoutProps {
+  children: React.ReactNode
+  showBackground: boolean
+}
+
+const Layout: React.FC<LayoutProps> = ({ children, showBackground }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -29,7 +34,9 @@ const Layout: React.FC = ({ children }) => {
     <>
       <Helmet>
         <link rel="icon" href={favicon} />
-        <style>{"body { background-color: #b8bbbc }"}</style>
+        {showBackground ? (
+          <style>{"body { background-color: #b8bbbc }"}</style>
+        ) : null}
       </Helmet>
       <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
       <div
@@ -42,15 +49,18 @@ const Layout: React.FC = ({ children }) => {
         <main>{children}</main>
         <footer
           style={{
-            marginTop: `10px`,
+            marginTop: `50px`,
             position: "relative",
             textAlign: "left",
+            color: "#bca56c",
           }}
           id="footer"
         >
           © Kyle Yasuda {new Date().getFullYear()}, Built with
           {` `}
-          <a href="https://www.gatsbyjs.com">Gatsby</a>
+          <a style={{ color: "#bca56c" }} href="https://www.gatsbyjs.com">
+            Gatsby
+          </a>
         </footer>
       </div>
     </>

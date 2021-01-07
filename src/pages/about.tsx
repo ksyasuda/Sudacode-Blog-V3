@@ -11,7 +11,7 @@ export default function about() {
     //console.log(window.screen.height)
   }
   return (
-    <Layout>
+    <Layout showBackground>
       <SEO
         title="About-Me"
         description="A page dedicated to all things about me including my personal life, my computer science background, my personal setup in terms of desktop setup, laptop setup, linux setup, etc"

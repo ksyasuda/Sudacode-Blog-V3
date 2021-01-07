@@ -1,0 +1,9 @@
+html {
+  background-image: url("../images/sudasite2.gif");
+  background-position-y: 100px;
+}
+
+.index-content {
+  display: flex;
+  justify-content: center;
+}

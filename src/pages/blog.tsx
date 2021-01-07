@@ -110,7 +110,7 @@ const blog: React.FC<BlogProps> = ({ data }) => {
   // shuffle array of colors
   shuffleArray(vcolors)
   return (
-    <Layout>
+    <Layout showBackground>
       <SEO
         title="Blog"
         description="A blog where I can showcase my personal projects and setup as well as talk about interesting topics in computer science and technology"
