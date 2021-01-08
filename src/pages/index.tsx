@@ -61,7 +61,7 @@ const IndexPage = (props: IndexPageProps) => {
       // console.log(node)
       posts.push(
         <IndexPost
-          id={idx.toString()}
+          key={idx.toString()}
           title={node.node.frontmatter.title}
           subject={node.node.frontmatter.subject}
           date={node.node.frontmatter.date}
