@@ -1,4 +1,4 @@
-.List {
+.navbar-list {
   list-style: none;
   position: relative;
   display: flex;
@@ -19,34 +19,17 @@
   top: -3px;
 }
 
-.Divider {
+.navbar-divider {
   display: flex;
   flex-flow: row;
   justify-content: center;
   font-weight: bold;
   font-size: x-large;
   position: relative;
-  top: -2.5px;
+  top: 0;
 }
 
-.Link {
-  text-decoration: none;
-  color: rgba(192, 97, 19, 0.945);
-  font-weight: bold;
-  text-align: center;
-  font-size: x-large;
-  position: relative;
-}
-
-.Link:hover {
-  color: rgb(77, 192, 77);
-}
-
-/* .Link:active {
-	color: dodgerblue;
-} */
-
-.Div {
+.navbar-div {
   background-color: inherit;
   display: flex;
   /* justify-content: right; */
@@ -60,22 +43,20 @@
 }
 
 @media (max-width: 800px) {
-  .Div {
+  .navbar-div {
     display: none;
   }
 }
 
-.Spinner {
-  position: relative;
-  top: 10rem;
-}
-
-.Button {
-  position: relative;
-  top: -10px;
-}
-
 .ListItem:hover {
   opacity: 0.9;
-  filter: alpha(opacity=90);
+  filter: alpha(opacity=95);
+}
+
+.MuiButton-textSecondary {
+  color: #9f5518 !important;
+}
+
+.MuiButton-textSecondary:hover {
+  color: #9f5518 !important;
 }

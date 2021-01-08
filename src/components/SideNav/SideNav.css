@@ -1,77 +1,59 @@
-.List {
-	list-style: none;
-	position: relative;
-	flex-flow: row;
-	justify-content: center;
-	align-items: center;
-	margin-bottom: 0px;
-	text-align: center;
-	left: 5.5%;
+#sidenav-container {
+  float: right;
 }
 
-.ListItem {
-	display: inherit;
-	margin: -10px 0px 0px 0px;
-	text-align: center;
-	position: relative;
+#sidenav-site-title {
+  font-size: 40px;
+  color: dodgerblue;
 }
 
-.Divider {
-	display: flex;
-	flex-flow: row;
-	justify-content: center;
-	font-weight: bold;
-	font-size: x-large;
+.sidenav-drawer {
+  width: 28%;
 }
 
-.Link {
-	text-decoration: none;
-	color: rgba(192, 97, 19, 0.945);
-	font-weight: bold;
-	text-align: center;
-	font-size: x-large;
+.sidenav-button,
+.sidenav-link {
+  text-decoration: none;
+  font-size: 20px;
+  color: #9f5518;
+  width: 100%;
 }
 
-.Link:hover {
-	color: rgb(77, 192, 77);
+.sidenav-drawer-toggle {
+  top: 20px;
+  right: 1.4rem;
 }
 
-.Div {
-	position: fixed;
-	background-color: inherit;
-	display: flex;
-	/* justify-content: right; */
-	float: inline-end;
-	width: 50%;
-	padding: 0px;
-	margin-top: 0px;
-	z-index: 200;
-	left: 5px;
+/* Material-UI Drawer */
+.MuiDrawer-paperAnchorLeft {
+  width: inherit;
+  background-color: rebeccapurple !important;
 }
 
-.Title {
-	display: block;
-	text-align: center;
-	font-weight: bold;
-	color: rebeccapurple;
-	font-size: 20px;
+.MuiButton-label {
+  width: 100%;
+  font-size: 20px;
 }
 
-.Sudacode {
-	position: relative;
-	display: block;
-	text-align: center;
-	font-weight: bold;
-	font-size: 46px;
-	color: dodgerblue;
-	margin-bottom: 15%;
-	text-decoration: none;
-	z-index: 500;
-	/* background-color: rebeccapurple; */
-	/* padding: 30px 0px; */
+.MuiButton-root:hover {
+  color: #9f5518;
 }
 
-.Button {
-	position: relative;
-	top: 2px;
+.MuiButton-textSecondary {
+  color: #9f5518 !important;
+}
+
+@media (max-width: 800px) {
+  .sidenav-drawer {
+    width: 40%;
+  }
+  .sidenav-link {
+    font-size: 35px;
+  }
+}
+
+@media (max-width: 600px) {
+  .sidenav-drawer {
+    width: 65%;
+  }
 }

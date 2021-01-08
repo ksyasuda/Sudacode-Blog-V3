@@ -1,6 +1,7 @@
 import { Link } from "gatsby"
 import React, { useState } from "react"
 import NavBar from "../NavBar/NavBar"
+import SideNav from "../SideNav/SideNav"
 import "./header.css"
 
 interface HeaderProps {
@@ -8,13 +9,9 @@ interface HeaderProps {
 }
 
 const Header: React.FC<HeaderProps> = ({ siteTitle }) => {
-  const [show, setShow] = useState(false)
-  const [loading, setLoading] = useState(false)
-
-  const handleMenuToggle = (event: Event) => {
-    event.preventDefault()
-    setShow(prev => !prev)
-  }
+  let sidenav = null
+  const width = window.screen !== undefined ? window.screen.width : null
+  width < 1000 ? (sidenav = <SideNav />) : null
 
   return (
     <header
@@ -44,8 +41,8 @@ const Header: React.FC<HeaderProps> = ({ siteTitle }) => {
         }}
       >
         <NavBar />
-        {/* <SideDrawer show={show} clicked={handleMenuToggle} /> */}
       </div>
+      {sidenav}
     </header>
   )
 }

@@ -1,6 +1,15 @@
 html {
   background-image: url("../images/sudasite2.gif");
-  background-position-y: 100px;
+  background-repeat: no-repeat;
+  background-position-y: 96px;
+  background-size: 100%;
+}
+
+@media (max-width: 1000px) {
+  html {
+    background-image: none;
+    background-color: #252a31;
+  }
 }
 
 .index-content {

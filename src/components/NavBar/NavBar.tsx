@@ -14,12 +14,12 @@ const NavBar: React.FC = () => {
   const flightIcon = <FlightIcon style={{ color: "dodgerblue" }} />
 
   return (
-    <div className="Div">
-      <ul className="List">
+    <div className="navbar-div">
+      <ul className="navbar-list">
         <li className="ListItem">
           <NavItem to="/" cname="button" startIcon={homeIcon} text="HOME" />
         </li>
-        <li className="Divider">|</li>
+        <li className="navbar-divider">|</li>
         <li className="ListItem">
           <NavItem
             to="/about/"
@@ -28,7 +28,7 @@ const NavBar: React.FC = () => {
             text="ABOUT"
           />
         </li>
-        <li className="Divider">|</li>
+        <li className="navbar-divider">|</li>
         <li className="ListItem">
           <NavItem
             to="/blog/"
@@ -37,7 +37,7 @@ const NavBar: React.FC = () => {
             text="BLOG"
           />
         </li>
-        <li className="Divider">|</li>
+        <li className="navbar-divider">|</li>
         <li className="ListItem">
           <NavItem
             to="/travel/"

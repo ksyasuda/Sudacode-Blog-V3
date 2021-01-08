@@ -57,11 +57,11 @@ const IndexPage = (props: IndexPageProps) => {
 
   useEffect(() => {
     const posts = []
-    data.allMarkdownRemark.edges.map(node => {
+    data.allMarkdownRemark.edges.map((node, idx) => {
       // console.log(node)
       posts.push(
         <IndexPost
-          id={node.node.id}
+          id={idx.toString()}
           title={node.node.frontmatter.title}
           subject={node.node.frontmatter.subject}
           date={node.node.frontmatter.date}
