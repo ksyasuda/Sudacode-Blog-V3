@@ -10,9 +10,6 @@ interface HeaderProps {
 
 const Header: React.FC<HeaderProps> = ({ siteTitle }) => {
   let sidenav = null
-  const width = window.screen !== undefined ? window.screen.width : null
-  width < 1000 ? (sidenav = <SideNav />) : null
-
   return (
     <header
       style={{
