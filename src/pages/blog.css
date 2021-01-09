@@ -57,11 +57,11 @@
 .Line {
   margin-top: 15px;
 }
-@media (max-width: 1000px) {
+@media (max-width: 1024px) {
   .BlogPostsContainer {
     position: relative;
     width: 100%;
-    left: -2px;
+    left: 4px;
   }
   .postContainer {
     width: 100%;

@@ -11,6 +11,10 @@
   width: 28%;
 }
 
+.menu-icon {
+  color: #9f5518;
+}
+
 .sidenav-button,
 .sidenav-link {
   text-decoration: none;
@@ -20,7 +24,7 @@
 }
 
 .sidenav-drawer-toggle {
-  top: 20px;
+  top: 24px;
   right: 1.4rem;
 }
 
@@ -30,17 +34,28 @@
   background-color: rebeccapurple !important;
 }
 
+.MuiTouchRipple-root {
+  color: #9f5518 !important;
+}
+
 .MuiButton-label {
   width: 100%;
   font-size: 20px;
+  color: #9f5518;
 }
 
-.MuiButton-root:hover {
-  color: #9f5518;
+.MuiButton-root:active {
+  color: #9f5518 !important;
 }
 
 .MuiButton-textSecondary {
   color: #9f5518 !important;
+}
+
+@media (min-width: 1000px) {
+  #sidenav-container {
+    display: none;
+  }
 }
 
 @media (max-width: 800px) {

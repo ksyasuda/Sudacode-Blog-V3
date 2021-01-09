@@ -7,7 +7,7 @@ import SEO from "../components/seo"
 
 import "./index.css"
 
-interface IndexPageProps extends PageProps {
+export interface IndexPageProps extends PageProps {
   data: {
     allMarkdownRemark: {
       edges: {
@@ -61,7 +61,8 @@ const IndexPage = (props: IndexPageProps) => {
       // console.log(node)
       posts.push(
         <IndexPost
-          key={idx.toString()}
+          key={idx}
+          id={idx.toString()}
           title={node.node.frontmatter.title}
           subject={node.node.frontmatter.subject}
           date={node.node.frontmatter.date}
@@ -79,10 +80,13 @@ const IndexPage = (props: IndexPageProps) => {
       <SEO
         title="Home"
         lang="English (En-US)"
-        description="Sudacode home page"
+        description="sudacode home page"
       />
       <div className="index-content">
-        <div className="index-posts-container">{posts}</div>
+        <div className="index-posts-container">
+          <h2 id="posts-title">Check out my recent blog posts</h2>
+          {posts}
+        </div>
       </div>
     </Layout>
   )

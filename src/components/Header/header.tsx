@@ -9,7 +9,6 @@ interface HeaderProps {
 }
 
 const Header: React.FC<HeaderProps> = ({ siteTitle }) => {
-  let sidenav = null
   return (
     <header
       style={{
@@ -39,7 +38,7 @@ const Header: React.FC<HeaderProps> = ({ siteTitle }) => {
       >
         <NavBar />
       </div>
-      {sidenav}
+      <SideNav />
     </header>
   )
 }
