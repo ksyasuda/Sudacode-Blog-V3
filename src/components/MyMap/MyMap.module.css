@@ -1,0 +1,28 @@
+.Popup {
+	background-color: none;
+	background: none;
+	border: none;
+}
+
+.Buttons {
+	margin: 10px;
+}
+
+.MapNav {
+	/* background-color: black; */
+	color: #e6761c;
+	font-weight: bold;
+	padding: 10px;
+	margin-top: 15px;
+	margin-left: 10px;
+	margin-bottom: 18px;
+	text-align: center;
+	/* left: 32.5%; */
+}
+
+.SearchBox {
+	text-align: center;
+	margin-top: 10px;
+	position: relative;
+	left: 47.42%;
+}

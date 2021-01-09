@@ -1,0 +1,135 @@
+.Button {
+	background-color: green;
+	color: blue;
+	text-align: center;
+	cursor: pointer;
+	font-weight: bold;
+	padding: 3px;
+	width: 45%;
+	height: 40px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.Input {
+	display: flex;
+	width: 60%;
+	height: 40px;
+	text-align: center;
+	align-items: center;
+}
+
+.Form {
+	position: relative;
+	width: 60%;
+	display: flex;
+	align-items: center;
+	flex-direction: row;
+	text-align: center;
+	justify-content: center;
+	left: 20%;
+	align-items: center;
+	justify-content: center;
+}
+
+.Select {
+	color: #e6761c;
+	font-weight: bold;
+	/* background-color: green; */
+	/* color: blue; */
+	background-color: #3e55b7;
+	width: 60%;
+	height: 40px;
+	font-weight: bold;
+	font-size: 16px;
+	margin: none;
+	margin-top: 17px;
+	position: relative;
+	left: -2px;
+	box-sizing: border-box;
+	border-left: 2px solid black;
+	border-bottom: 2px solid black;
+	top: 6px;
+}
+
+.Select:hover {
+	border-color: blue;
+}
+
+.Select:focus {
+	border-color: purple;
+}
+
+.Option {
+	border: 5px solid black;
+	box-shadow: 0 1px 0 1px rgba(0, 0, 0, 0.04);
+	position: relative;
+}
+
+.Name {
+	color: blue;
+	text-align: center;
+	font-weight: bold;
+	text-decoration: underline;
+}
+
+.Names {
+	color: blue;
+	text-align: center;
+	background: none;
+	background-color: none;
+}
+
+.Date {
+	text-align: center;
+	font-size: x-large;
+}
+
+.Location {
+	text-align: center;
+	font-size: large;
+}
+
+.Location span {
+	color: red;
+}
+
+.ToWebsite {
+	text-decoration: none;
+}
+
+@media (max-width: 800px) {
+	.Button {
+		background-color: green;
+		color: blue;
+		text-align: center;
+		cursor: pointer;
+		font-weight: bold;
+		padding: 5px;
+		width: 100%;
+		font-size: small;
+		height: 70px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	.Select {
+		color: #e6761c;
+		font-weight: bold;
+		/* background-color: green; */
+		/* color: blue; */
+		background-color: #3e55b7;
+		width: 100%;
+		height: 70px;
+		font-weight: bold;
+		font-size: 12px;
+		margin-top: 17px;
+		position: relative;
+		left: -2px;
+		box-sizing: border-box;
+		border-left: 2px solid black;
+		border-bottom: 2px solid black;
+		top: 6px;
+	}
+}

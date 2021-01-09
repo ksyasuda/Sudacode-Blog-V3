@@ -17,11 +17,18 @@ const NavBar: React.FC = () => {
     <div className="navbar-div">
       <ul className="navbar-list">
         <li className="ListItem">
-          <NavItem to="/" cname="button" startIcon={homeIcon} text="HOME" />
+          <NavItem
+            show
+            to="/"
+            cname="button"
+            startIcon={homeIcon}
+            text="HOME"
+          />
         </li>
         <li className="navbar-divider">|</li>
         <li className="ListItem">
           <NavItem
+            show
             to="/about/"
             cname="button"
             startIcon={aboutIcon}
@@ -31,15 +38,17 @@ const NavBar: React.FC = () => {
         <li className="navbar-divider">|</li>
         <li className="ListItem">
           <NavItem
+            show
             to="/blog/"
             cname="button"
             startIcon={createIcon}
             text="BLOG"
           />
         </li>
-        <li className="navbar-divider">|</li>
+        {/* <li className="navbar-divider">|</li> */}
         <li className="ListItem">
           <NavItem
+            show={false}
             to="/travel/"
             cname="button"
             startIcon={flightIcon}

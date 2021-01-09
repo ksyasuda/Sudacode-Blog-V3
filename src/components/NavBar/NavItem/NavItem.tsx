@@ -9,11 +9,12 @@ interface NavItemProps {
   startIcon: JSX.Element
   cname: string
   text: string
+  show: boolean
 }
 
 const NavItem: React.FC<NavItemProps> = props => {
-  const { to, startIcon, cname, text } = props
-  return (
+  const { to, startIcon, cname, text, show } = props
+  return show ? (
     <Link to={to}>
       <Button
         variant="text"
@@ -26,7 +27,7 @@ const NavItem: React.FC<NavItemProps> = props => {
         {text}
       </Button>
     </Link>
-  )
+  ) : null
 }
 
 export default NavItem
