@@ -1,3 +1,19 @@
 .spinner {
-  margin: auto;
+  position: relative;
+  top: 38%;
+  left: 40%;
+}
+
+@media (max-width: 1024px) {
+  .spinner {
+    left: 28%;
+    top: 35%;
+  }
+}
+
+@media (max-width: 600px) {
+  .spinner {
+    left: 12%;
+    top: 34%;
+  }
 }

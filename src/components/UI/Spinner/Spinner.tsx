@@ -24,12 +24,7 @@ const spinner: React.FC<SpinnerProps> = ({
       aria-labelledby={label}
       aria-describedby={describe}
     >
-      <CircularProgress
-        size="40rem"
-        className="spinner"
-        style={{ position: "relative", top: "8rem", left: "31rem" }}
-        color="secondary"
-      />
+      <CircularProgress size="20rem" className="spinner" color="secondary" />
     </Modal>
   )
 }
