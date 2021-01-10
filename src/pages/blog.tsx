@@ -118,12 +118,12 @@ const blog: React.FC<BlogProps> = ({ data }) => {
       <>
         <h1 className="BlogPosts">Blog Posts</h1>
         <h4 className="numPosts">{data.allMarkdownRemark.totalCount} Posts</h4>
-        <div className="BlogPostsContainer">
+        <section className="BlogPostsContainer">
           {data.allMarkdownRemark.edges.map(({ node }, idx) => {
             const color = vcolors[count++ % vcolors.length]
             return <BlogPost key={idx} node={node} color={color} />
           })}
-        </div>
+        </section>
       </>
     </Layout>
   )

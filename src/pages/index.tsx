@@ -82,12 +82,12 @@ const IndexPage = (props: IndexPageProps) => {
         lang="English (En-US)"
         description="sudacode home page"
       />
-      <div className="index-content">
+      <section className="index-content">
         <div className="index-posts-container">
           <h2 id="posts-title">Check out my recent blog posts</h2>
           {posts}
         </div>
-      </div>
+      </section>
     </Layout>
   )
 }

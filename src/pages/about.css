@@ -1,14 +1,9 @@
-.AboutContainer {
-  position: relative;
-  left: 20px;
-}
-
 .AboutParagraph {
-  width: 98%;
   position: relative;
-  left: -6px;
+  width: 98%;
   padding: 2px;
   font-size: 18px;
+  left: 24px;
 }
 
 .WakaTime {
@@ -17,6 +12,12 @@
 
 .WakaImg {
   padding: 5px;
+}
+
+@media (max-width: 600px) {
+  .AboutParagraph {
+    left: 5px;
+  }
 }
 
 /* For half-screen width pages */

@@ -15,15 +15,15 @@ interface IndexPostProps {
 const IndexPost: React.FC<IndexPostProps> = props => {
   const { id, title, date, subject, excerpt, timeToRead, slug } = props
   return (
-    <div key={id} className="index-post-container">
+    <article key={id} className="index-post-container">
       <Link to={slug} className="index-post-link">
-        <h1>{title}</h1>
+        <h1 className="indexpost-title">{title}</h1>
         <p>
           {subject} | {date} | {timeToRead} min read
         </p>
         <p>{excerpt}</p>
       </Link>
-    </div>
+    </article>
   )
 }
 

@@ -35,7 +35,10 @@ const BlogPost: React.FC<BlogPostProps> = ({ node, color }) => {
         }}
         className="postContainer"
       >
-        <h3 className="Title" style={{ marginBottom: "2px" }}>
+        <h3
+          className="Title"
+          style={{ marginBottom: "2px", fontStyle: "italic" }}
+        >
           {node.frontmatter.title}
           {<br />}
           <span

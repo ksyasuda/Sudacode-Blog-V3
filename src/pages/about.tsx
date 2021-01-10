@@ -4,12 +4,8 @@ import SEO from "../components/seo"
 import JapanPic from "../components/JapanPic/JapanPic"
 
 import "./about.css"
-import { Autorenew } from "@material-ui/icons"
 
 export default function about() {
-  if (typeof window !== "undefined") {
-    //console.log(window.screen.height)
-  }
   return (
     <Layout showBackground>
       <SEO
@@ -27,20 +23,18 @@ export default function about() {
           About Me
         </h1>
         <JapanPic />
-        <div className="AboutContainer">
-          <p className="AboutParagraph">I'm Kyle Yasuda,</p>
+        <section className="AboutContainer">
+          <p className="AboutParagraph">I'm Kyle Yasuda.</p>
           <p className="AboutParagraph">
-            A Senior Computer Science major at the University of Michigan - Ann
-            Arbor.
+            I'm a Senior at the University of Michigan - Ann Arbor studying
+            Computer Science.
           </p>
           <p className="AboutParagraph">
-            I was born and raised in a relatively small town in Southern
-            California called La Cañada. It was during my sophomore year at La
-            Cañada High School when I took my first formal programming course,
-            Honors C++. Since then, I've taken at least one, typically two,
-            computer science courses per semester. That includes my Junior and
-            Senior years of High School where I took AP Java and Honors Python
-            respectively.
+            It was during my sophomore year of High School where I took my first
+            formal programming course, Honors C++. Since then, I've taken at
+            least one, typically two, computer science courses per semester.
+            That includes my Junior and Senior years of High School where I took
+            AP Java and Honors Python respectively.
           </p>
           <p className="AboutParagraph">
             For my first three years at Michigan, I programmed almost
@@ -50,8 +44,8 @@ export default function about() {
             including Bash scripting and Python.
           </p>
           <p className="AboutParagraph">
-            This past summer, as a result of Covid-19, I was unable to
-            participate in a summer internship and as a result I decided to
+            This past summer (2020), due to the Covid-19 pandemic, I was unable
+            to participate in a summer internship. As a result, I decided to
             spend the summer learning web development, and specifically
             React.js. I have always had an interest in web development, but
             lacked the time and motivation to commit myself to learning how to
@@ -89,10 +83,20 @@ export default function about() {
             well as reading through the official documentation, which is
             something that I still refrence frequently
           </p>
-        </div>
+          <p className="AboutParagraph">
+            In the Fall semester 2020, I completed a Web Systems course, in
+            which I worked with Flask, Jinja2, and React to create a web-based
+            Instagram clone. Since then, I learned TypeScript and began the
+            process of converting this website to using TypeScript. The other
+            thing that I am constantly working on is the customization of my
+            Linux system (Arch Linux btw). For about two months, I have been
+            daily driving ArcoLinux on my personal laptop and I am dual booting
+            Windows 10 and ArcoLinux on my PC.
+          </p>
+        </section>
         <hr />
         <p style={{ display: "block", textAlign: "center" }}>
-          Check out my wakatime profile here
+          Check out my Wakatime profile here
         </p>
         <div className="WakaTime">
           <a href="https://wakatime.com" rel="noreferrer" target="_blank">
@@ -101,15 +105,17 @@ export default function about() {
               className="WakaImg"
             />
           </a>
-          <a href="https://wakatime.com" rel="noreferrer" target="_blank">
+          <a
+            href="https://wakatime.com/@sudacode"
+            rel="noreferrer"
+            target="_blank"
+          >
             <img
               src="https://wakatime.com/share/@cb761320-ecf4-4a76-a931-6d29dae94b27/87b67da8-41f0-4254-9948-052d383cd27d.png"
               className="WakaImg"
             />
           </a>
         </div>
-
-        {/* <Neofetch style={{ width: "60%", left: "20%" }} /> */}
       </div>
     </Layout>
   )

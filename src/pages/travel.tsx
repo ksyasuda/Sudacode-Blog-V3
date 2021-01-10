@@ -1,11 +1,11 @@
 import React, { useState } from "react"
-import { MapContainer, TileLayer, Marker, useMap, Map } from "react-leaflet"
+import { MapContainer, TileLayer, Marker, useMap } from "react-leaflet"
 import SEO from "../components/seo"
 import Layout from "../components/layout"
 import Button from "@material-ui/core/Button"
 import axios from "axios"
 import { navigate } from "gatsby"
-import LeafletMap from "../components/LeafletMap/LeafLetMap"
+import Spinner from "../components/UI/Spinner/Spinner"
 
 import "./travel.css"
 
@@ -32,7 +32,8 @@ const travel: React.FC = () => {
   const [zoom, setZoom] = useState(3)
   const [markers, setMarkers] = useState<JSX.Element[]>([])
   const [markerCount, setMarkerCount] = useState(0)
-  const [theMap, setTheMap] = useState<Map>(null)
+  const [theMap, setTheMap] = useState(null)
+  const [loading, setLoading] = useState(false)
 
   const setMarker = (lat: number, lng: number) => {
     const newMarker = <Marker position={[lat, lng]} key={markerCount} />
@@ -66,6 +67,7 @@ const travel: React.FC = () => {
             "Longitude: " + lng.toString()
           const url = "https://sudacode-travelapi.herokuapp.com/"
           const geocodingUrl = url + `geocode-location/${lat},${lng}`
+          setLoading(true)
           const response = await axios.get(geocodingUrl)
           let address
           if (response.data.results.length === 0) {
@@ -94,6 +96,7 @@ const travel: React.FC = () => {
           }))
           if (markers.length < 1) setMarker(lat, lng)
           else moveMarker()
+          setLoading(false)
         }
       )
     } else {
@@ -164,6 +167,12 @@ const travel: React.FC = () => {
       <h2 style={{ color: "dodgerblue", fontFamily: "Open Sans" }}>
         Sudacode Travel Page
       </h2>
+      <Spinner
+        open={loading}
+        onClose={() => function () {}}
+        label="spinner"
+        describe="spinner"
+      />
       <div className="map-container">
         <MapContainer
           className="leaflet-map"
