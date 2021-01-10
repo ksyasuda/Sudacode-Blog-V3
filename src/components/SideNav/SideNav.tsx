@@ -21,7 +21,7 @@ const SideNav: React.FC = () => {
     { to: "/", icon: "home", text: "HOME" },
     { to: "/about/", icon: "about", text: "ABOUT" },
     { to: "/blog/", icon: "blog", text: "BLOG" },
-    // { to: "/travel/", icon: "travel", text: "TRAVEL" },
+    { to: "/travel/", icon: "travel", text: "TRAVEL" },
   ]
 
   function handleClick(event: React.MouseEvent<HTMLButtonElement, MouseEvent>) {

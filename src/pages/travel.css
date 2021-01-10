@@ -1,0 +1,28 @@
+.map-container {
+  display: flex;
+  justify-content: center;
+}
+
+.travel-content {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  margin-top: 2%;
+}
+
+.travel-buttons {
+  flex-flow: row;
+  padding: 5px;
+  margin: 5px;
+}
+
+.travel-loc {
+  font-size: 24px;
+  font-weight: bold;
+  color: orangered;
+}
+
+.leaflet-map {
+  height: 35rem;
+  width: 100rem;
+}

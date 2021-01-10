@@ -45,10 +45,10 @@ const NavBar: React.FC = () => {
             text="BLOG"
           />
         </li>
-        {/* <li className="navbar-divider">|</li> */}
+        <li className="navbar-divider">|</li>
         <li className="ListItem">
           <NavItem
-            show={false}
+            show
             to="/travel/"
             cname="button"
             startIcon={flightIcon}

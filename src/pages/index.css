@@ -5,7 +5,7 @@ html {
   background-size: 100%;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1200px) {
   html {
     background-image: none;
     background-color: #252a31;
