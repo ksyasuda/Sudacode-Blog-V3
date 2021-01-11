@@ -1,0 +1,28 @@
+#allLocation-map {
+  position: relative;
+  height: 600px;
+}
+
+#to-travel-button {
+  position: relative;
+  bottom: 10px;
+}
+
+#to-travel-link {
+  text-decoration: none;
+  padding: 4px;
+  position: relative;
+}
+
+@media (max-width: 1024px) {
+  #to-travel-button {
+    right: 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  #allLocation-map {
+    width: 90%;
+    left: 5%;
+  }
+}

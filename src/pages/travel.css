@@ -36,8 +36,17 @@
   color: #9f5530;
 }
 
+.MuiButton-label {
+  left: 3px;
+  text-align: center;
+}
+
 #searchbox-label {
   color: #9f5530;
+}
+
+#all-location-link {
+  text-decoration: none;
 }
 
 @media (max-width: 1024px) {
@@ -51,5 +60,16 @@
   }
   .leaflet-map {
     width: 88%;
+  }
+  #all-location-button {
+    position: relative;
+    right: 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  #travel-searchbutton {
+    width: 60%;
+    padding: 10px;
   }
 }

@@ -222,8 +222,15 @@ const travel: React.FC = () => {
       <h2 style={{ color: "dodgerblue", fontFamily: "Open Sans" }}>
         Sudacode Travel Page
       </h2>
-      <Button style={{ top: "-10px" }} variant="text" color="secondary">
-        <Link to="/travel/all-locations">To All Locations</Link>
+      <Button
+        id="all-location-button"
+        style={{ top: "-10px" }}
+        variant="text"
+        color="secondary"
+      >
+        <Link id="all-location-link" to="/travel/all-locations">
+          To All Locations
+        </Link>
       </Button>
       <Spinner
         open={loading}
@@ -293,8 +300,13 @@ const travel: React.FC = () => {
             autoComplete="on"
             onSubmit={event => handleSearch(event)}
           >
-            <TextField id="searchbox" label="Search for location" />
-            <Button type="submit" variant="contained" color="primary">
+            <TextField id="searchbox" label="Search location" />
+            <Button
+              id="travel-searchbutton"
+              type="submit"
+              variant="contained"
+              color="primary"
+            >
               Search
             </Button>
           </form>
