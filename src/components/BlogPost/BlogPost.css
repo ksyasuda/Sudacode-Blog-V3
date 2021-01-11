@@ -1,9 +1,11 @@
-.link {
+.blogpost-link {
   border-radius: 22px;
   border: 2px solid black;
-  margin: 0 35px 30px 0;
+  margin: 0px 35px 30px 10px;
   right: 20px;
   text-decoration: none;
+  position: relative;
+  left: 0px;
 }
 
 .postContainer {
@@ -11,7 +13,7 @@
 }
 
 @media (max-width: 1000px) {
-  .link {
+  .blogpost-link {
     left: 2%;
   }
 }

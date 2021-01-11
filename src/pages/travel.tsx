@@ -61,9 +61,13 @@ const travel: React.FC = () => {
             "Latitude: " + lat.toString()
           document.getElementById("lng").innerText =
             "Longitude: " + lng.toString()
+          //   const url =
+          //     process.env.TRAVEL_API +
+          //     process.env.TRAVEL_API_LOCATION +
+          //     `${lat},${lng}`
           const url =
-            process.env.TRAVEL_API +
-            process.env.TRAVEL_API_LOCATION +
+            "https://sudacode-travelapi.herokuapp.com" +
+            "/geocode-location/" +
             `${lat},${lng}`
           setLoading(true)
           const response = await axios.get(url)
@@ -84,6 +88,10 @@ const travel: React.FC = () => {
             response.data.results[0].place_id ||
             response.data.plus_code.global_code
           setMapdata(prev => ({
+            // const url =
+            //   process.env.TRAVEL_API +
+            //   process.env.TRAVEL_API_SEARCH +
+            //   event.target[0].value
             lat: lat,
             lng: lng,
             locName: address,
@@ -110,9 +118,13 @@ const travel: React.FC = () => {
       form.reset()
       throw new Error("User Input Not Received")
     }
+    // const url =
+    //   process.env.TRAVEL_API +
+    //   process.env.TRAVEL_API_SEARCH +
+    //   event.target[0].value
     const url =
-      process.env.TRAVEL_API +
-      process.env.TRAVEL_API_SEARCH +
+      "https://sudacode-travelapi.herokuapp.com" +
+      "/geocode-address/" +
       event.target[0].value
     let response = null
     try {
@@ -165,7 +177,8 @@ const travel: React.FC = () => {
       lng: mapData.lng,
       time: time,
     }
-    const url = process.env.TRAVEL_API_DB
+    // const url = process.env.TRAVEL_API_DB
+    const url = "https://gatsby-websitev2.firebaseio.com/all-locations.json"
     let response
     try {
       setLoading(true)

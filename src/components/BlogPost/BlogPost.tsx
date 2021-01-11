@@ -25,7 +25,7 @@ const BlogPost: React.FC<BlogPostProps> = ({ node, color }) => {
     <Link
       to={node.fields.slug}
       style={{ backgroundColor: color }}
-      className="link"
+      className="blogpost-link"
       key={node.id}
     >
       <div
