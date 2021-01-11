@@ -18,11 +18,21 @@
   #to-travel-button {
     right: 20px;
   }
+  #allLocation-map {
+    width: 90%;
+    left: 5%;
+  }
+  .MuiButton-label {
+    left: 0px !important;
+  }
 }
 
 @media (max-width: 600px) {
   #allLocation-map {
     width: 90%;
     left: 5%;
+  }
+  .MuiButton-label {
+    left: 0px !important;
   }
 }
