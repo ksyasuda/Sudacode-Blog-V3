@@ -8,12 +8,12 @@
   flex-flow: column;
   align-items: center;
   margin-top: 2%;
+  width: 100%;
 }
 
 .travel-buttons {
   flex-flow: row;
-  padding: 5px;
-  margin: 5px;
+  margin: 15px;
 }
 
 .travel-loc {
@@ -25,4 +25,17 @@
 .leaflet-map {
   height: 35rem;
   width: 100rem;
+}
+
+.search-box {
+  display: flex;
+}
+
+.MuiFormControl-root {
+  width: 100%;
+  color: #9f5530;
+}
+
+#searchbox-label {
+  color: #9f5530;
 }

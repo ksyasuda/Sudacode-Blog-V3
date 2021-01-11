@@ -6,8 +6,10 @@ import Button from "@material-ui/core/Button"
 import axios from "axios"
 import { navigate } from "gatsby"
 import Spinner from "../components/UI/Spinner/Spinner"
+import TextField from "@material-ui/core/TextField"
 
 import "./travel.css"
+import { LocalGasStation } from "@material-ui/icons"
 
 interface MapData {
   lat: number
@@ -30,7 +32,7 @@ const travel: React.FC = () => {
     counter: 0,
   })
   const [zoom, setZoom] = useState(3)
-  const [markers, setMarkers] = useState<JSX.Element[]>([])
+  const [markers, setMarkers] = useState<JSX.Element>(null)
   const [markerCount, setMarkerCount] = useState(0)
   const [theMap, setTheMap] = useState(null)
   const [loading, setLoading] = useState(false)
@@ -38,21 +40,15 @@ const travel: React.FC = () => {
   const setMarker = (lat: number, lng: number) => {
     const newMarker = <Marker position={[lat, lng]} key={markerCount} />
     setMarkerCount(prev => prev + 1)
-    setMarkers(prev => [...prev, newMarker])
+    setMarkers(newMarker)
     theMap.setView([lat, lng], 14)
   }
 
-  const moveMarker = () => {
-    const newMarker = (
-      <Marker position={[mapData.lat, mapData.lng]} key={markerCount} />
-    )
+  const moveMarker = (lat: number, lng: number) => {
+    const newMarker = <Marker position={[lat, lng]} key={markerCount} />
     setMarkerCount(prev => prev + 1)
-    setMarkers(prev => {
-      let temp = [...prev]
-      prev.pop()
-      prev.push(newMarker)
-      return temp
-    })
+    setMarkers(newMarker)
+    theMap.setView([lat, lng], 14)
   }
 
   const getLocation = () => {
@@ -65,10 +61,12 @@ const travel: React.FC = () => {
             "Latitude: " + lat.toString()
           document.getElementById("lng").innerText =
             "Longitude: " + lng.toString()
-          const url = "https://sudacode-travelapi.herokuapp.com/"
-          const geocodingUrl = url + `geocode-location/${lat},${lng}`
+          const url =
+            process.env.TRAVEL_API +
+            process.env.TRAVEL_API_LOCATION +
+            `${lat},${lng}`
           setLoading(true)
-          const response = await axios.get(geocodingUrl)
+          const response = await axios.get(url)
           let address
           if (response.data.results.length === 0) {
             address = response.data.plus_code.compound_code
@@ -94,8 +92,8 @@ const travel: React.FC = () => {
             opacity: 1,
             counter: prev.counter,
           }))
-          if (markers.length < 1) setMarker(lat, lng)
-          else moveMarker()
+          if (!markers) setMarker(lat, lng)
+          else moveMarker(lat, lng)
           setLoading(false)
         }
       )
@@ -104,16 +102,27 @@ const travel: React.FC = () => {
     }
   }
 
-  const handleSearch = async () => {
-    const data = document.getElementById("searchbox")
-    const temp = data.innerText.split(" ")
-    let address = temp[0]
-    for (let i = 1; i < temp.length; ++i) {
-      address += "+" + temp[i]
+  const handleSearch = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
+    const form = document.querySelector("form")
+    const userInput = event.target[0].value
+    if (userInput === undefined) {
+      form.reset()
+      throw new Error("User Input Not Received")
     }
-    const url = "https://sudacode-travelapi.herokuapp.com/"
-    const addr = url + `geocode-address/${address}`
-    const response = await axios.get(addr)
+    const url =
+      process.env.TRAVEL_API +
+      process.env.TRAVEL_API_SEARCH +
+      event.target[0].value
+    let response = null
+    try {
+      setLoading(true)
+      response = await axios.get(url)
+      setLoading(false)
+    } catch (err) {
+      setLoading(false)
+      throw new Error(err)
+    }
     let lat, lng, name, place_id, shortName
     if (response.data) {
       lat = response.data.results[0].geometry.location.lat
@@ -124,21 +133,29 @@ const travel: React.FC = () => {
       if (tempName.length === 4) {
         shortName = tempName[1]
       } else if (tempName.length < 4) {
-        shortName = temp[0]
+        shortName = tempName[0]
       }
+      setMapdata(prev => ({
+        ...prev,
+        lat: lat,
+        lng: lng,
+        name: name,
+        place_id: place_id,
+        tempName: tempName,
+      }))
+      if (!markers) setMarker(lat, lng)
+      else moveMarker(lat, lng)
+      document.getElementById("lat").innerText = "Latitude: " + lat
+      document.getElementById("lng").innerText = "Longitude: " + lng
     }
-    setMapdata(prev => ({
-      ...prev,
-      lat: lat,
-      lng: lng,
-      name: name,
-      place_id: place_id,
-      shortName: shortName,
-    }))
+    form.reset()
   }
 
-  const handleSend = async () => {
-    if (markers.length > 1) return
+  const handleSend = async (
+    event: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
+    event.preventDefault()
+    if (!markers) return
     const time = Date.now()
     const data = {
       locName: mapData.locName,
@@ -148,14 +165,20 @@ const travel: React.FC = () => {
       lng: mapData.lng,
       time: time,
     }
-    const post_url =
-      "https://gatsby-websitev2.firebaseio.com/all-locations.json"
+    const url = process.env.TRAVEL_API_DB
     let response
     try {
-      response = await axios.post(post_url, data)
+      setLoading(true)
+      response = await axios.post(url, data)
+      setLoading(false)
     } catch (err) {
+      setLoading(false)
       throw new Error(err)
     }
+  }
+
+  const handleZoom = () => {
+    theMap.setView([mapData.lat, mapData.lng], 16)
   }
 
   return (
@@ -195,22 +218,51 @@ const travel: React.FC = () => {
           {markers}
         </MapContainer>
       </div>
-      <div className="travel-content">
-        <div className="travel-buttons">
-          <Button variant="contained" color="primary" onClick={getLocation}>
+      <section className="travel-content">
+        <section className="travel-buttons">
+          <Button
+            className="travel-button"
+            variant="contained"
+            color="primary"
+            onClick={getLocation}
+          >
             Current Location
           </Button>
-          <Button variant="contained" color="primary">
+          <Button
+            className="travel-button"
+            variant="contained"
+            color="primary"
+            onClick={handleZoom}
+          >
             Zoom
           </Button>
-        </div>
+          <Button
+            id="send-button"
+            variant="contained"
+            color="primary"
+            onClick={event => handleSend(event)}
+          >
+            Save Current Location
+          </Button>
+          <form
+            className="search-box"
+            noValidate
+            autoComplete="on"
+            onSubmit={event => handleSearch(event)}
+          >
+            <TextField id="searchbox" label="Search for location" />
+            <Button type="submit" variant="contained" color="primary">
+              Search
+            </Button>
+          </form>
+        </section>
         <p className="travel-loc" id="lat">
           Latitude: {mapData.lat.toFixed(2)}
         </p>
         <p className="travel-loc" id="lng">
           Longitude: {mapData.lng.toFixed(2)}
         </p>
-      </div>
+      </section>
     </Layout>
   )
 }
