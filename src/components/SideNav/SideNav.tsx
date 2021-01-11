@@ -59,7 +59,7 @@ const SideNav: React.FC = () => {
           className="sidenav-button"
         >
           <Link to="/" className="sidenav-link" id="sidenav-site-title">
-            SUDACODE
+            Sudacode
           </Link>
         </div>
         {pages.map((page, idx) => {

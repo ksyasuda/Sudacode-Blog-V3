@@ -39,3 +39,17 @@
 #searchbox-label {
   color: #9f5530;
 }
+
+@media (max-width: 1024px) {
+  .travel-buttons {
+    display: grid;
+    width: 69%;
+    padding: 8px;
+  }
+  .MuiButtonBase-root {
+    margin: 10px !important;
+  }
+  .leaflet-map {
+    width: 88%;
+  }
+}

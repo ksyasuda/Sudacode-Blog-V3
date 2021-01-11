@@ -1,10 +1,10 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { MapContainer, TileLayer, Marker, useMap } from "react-leaflet"
 import SEO from "../components/seo"
 import Layout from "../components/layout"
 import Button from "@material-ui/core/Button"
 import axios from "axios"
-import { navigate } from "gatsby"
+import { Link } from "gatsby"
 import Spinner from "../components/UI/Spinner/Spinner"
 import TextField from "@material-ui/core/TextField"
 
@@ -37,18 +37,26 @@ const travel: React.FC = () => {
   const [theMap, setTheMap] = useState(null)
   const [loading, setLoading] = useState(false)
 
+  // preload the data for all locations
+
   const setMarker = (lat: number, lng: number) => {
     const newMarker = <Marker position={[lat, lng]} key={markerCount} />
     setMarkerCount(prev => prev + 1)
     setMarkers(newMarker)
-    theMap.setView([lat, lng], 14)
+    setZoom(14)
+    theMap.flyTo([lat, lng], 14, { duration: 1.69 })
   }
 
   const moveMarker = (lat: number, lng: number) => {
     const newMarker = <Marker position={[lat, lng]} key={markerCount} />
     setMarkerCount(prev => prev + 1)
     setMarkers(newMarker)
-    theMap.setView([lat, lng], 14)
+    setZoom(14)
+    theMap.flyTo([lat, lng], 14, { duration: 1.69 })
+  }
+
+  const clearMarkers = () => {
+    setMarkers(null)
   }
 
   const getLocation = () => {
@@ -135,7 +143,11 @@ const travel: React.FC = () => {
       setLoading(false)
       throw new Error(err)
     }
-    let lat, lng, name, place_id, shortName
+    let lat: number,
+      lng: number,
+      name: string,
+      place_id: string,
+      shortName: string
     if (response.data) {
       lat = response.data.results[0].geometry.location.lat
       lng = response.data.results[0].geometry.location.lng
@@ -157,8 +169,8 @@ const travel: React.FC = () => {
       }))
       if (!markers) setMarker(lat, lng)
       else moveMarker(lat, lng)
-      document.getElementById("lat").innerText = "Latitude: " + lat
-      document.getElementById("lng").innerText = "Longitude: " + lng
+      document.getElementById("lat").innerText = "Latitude: " + lat.toFixed(2)
+      document.getElementById("lng").innerText = "Longitude: " + lng.toFixed(2)
     }
     form.reset()
   }
@@ -190,8 +202,15 @@ const travel: React.FC = () => {
     }
   }
 
+  const handleZoomOut = event => {
+    event.preventDefault()
+    setZoom(3)
+    theMap.flyTo([mapData.lat, mapData.lng], 3, { duration: 1.69 })
+  }
+
   const handleZoom = () => {
-    theMap.setView([mapData.lat, mapData.lng], 16)
+    setZoom(16)
+    theMap.flyTo([mapData.lat, mapData.lng], 16, { duration: 1.69 })
   }
 
   return (
@@ -203,6 +222,9 @@ const travel: React.FC = () => {
       <h2 style={{ color: "dodgerblue", fontFamily: "Open Sans" }}>
         Sudacode Travel Page
       </h2>
+      <Button style={{ top: "-10px" }} variant="text" color="secondary">
+        <Link to="/travel/all-locations">To All Locations</Link>
+      </Button>
       <Spinner
         open={loading}
         onClose={() => function () {}}
@@ -247,7 +269,15 @@ const travel: React.FC = () => {
             color="primary"
             onClick={handleZoom}
           >
-            Zoom
+            Zoom In
+          </Button>
+          <Button
+            className="travel-button"
+            variant="contained"
+            color="primary"
+            onClick={handleZoomOut}
+          >
+            Zoom Out
           </Button>
           <Button
             id="send-button"
