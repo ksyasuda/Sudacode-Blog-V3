@@ -31,13 +31,14 @@ exports.createPages = async ({ graphql, actions }) => {
   `)
   //   console.log(JSON.stringify(result, null, 4))
   result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+    const parts = node.fields.slug.split("/")
+    const slug = "/blog/" + parts[2].substring(parts[2].indexOf(".") + 1)
     createPage({
       path: node.fields.slug,
       component: path.resolve(`./src/templates/blog-post/blog-post.tsx`),
       context: {
-        // Data passed to context is available
-        // in page queries as GraphQL variables.
-        slug: node.fields.slug,
+        // slug: node.fields.slug,
+        slug: slug,
       },
     })
   })
