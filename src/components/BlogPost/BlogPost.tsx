@@ -21,9 +21,11 @@ interface BlogPostProps {
 }
 
 const BlogPost: React.FC<BlogPostProps> = ({ node, color }) => {
+  const parts = node.fields.slug.split("/")
+  const slug = "/blog/" + parts[2].substring(parts[2].indexOf(".") + 1)
   return (
     <Link
-      to={node.fields.slug}
+      to={slug}
       style={{ backgroundColor: color }}
       className="blogpost-link"
       key={node.id}

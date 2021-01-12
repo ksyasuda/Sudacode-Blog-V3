@@ -34,11 +34,12 @@ exports.createPages = async ({ graphql, actions }) => {
     const parts = node.fields.slug.split("/")
     const slug = "/blog/" + parts[2].substring(parts[2].indexOf(".") + 1)
     createPage({
-      path: node.fields.slug,
+      path: slug,
       component: path.resolve(`./src/templates/blog-post/blog-post.tsx`),
       context: {
-        // slug: node.fields.slug,
-        slug: slug,
+        // Data passed to context is available
+        // in page queries as GraphQL variables.
+        slug: node.fields.slug,
       },
     })
   })

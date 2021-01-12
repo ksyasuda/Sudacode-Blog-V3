@@ -14,9 +14,11 @@ interface IndexPostProps {
 
 const IndexPost: React.FC<IndexPostProps> = props => {
   const { id, title, date, subject, excerpt, timeToRead, slug } = props
+  const parts = slug.split("/")
+  const newSlug = "/blog/" + parts[2].substring(parts[2].indexOf(".") + 1)
   return (
     <article key={id} className="index-post-container">
-      <Link to={slug} className="index-post-link">
+      <Link to={newSlug} className="index-post-link">
         <h1 className="indexpost-title">{title}</h1>
         <p>
           {subject} | {date} | {timeToRead} min read
