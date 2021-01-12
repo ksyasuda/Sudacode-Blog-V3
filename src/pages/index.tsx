@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react"
-import { Link, graphql, PageProps } from "gatsby"
+import { graphql, PageProps } from "gatsby"
 import IndexPost from "../components/IndexPost/IndexPost"
+import Helmet from "react-helmet"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -82,6 +83,9 @@ const IndexPage = (props: IndexPageProps) => {
         lang="English (En-US)"
         description="sudacode home page"
       />
+      <Helmet>
+        <style>{"body {background-color: transparent;}"}</style>
+      </Helmet>
       <section className="index-content">
         <div className="index-posts-container">
           <h2 id="posts-title">Check out my recent blog posts</h2>

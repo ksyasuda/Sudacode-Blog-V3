@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react"
 import { MapContainer, TileLayer, Marker, useMap } from "react-leaflet"
 import { Link } from "gatsby"
+import Location from "./Location/Location"
 import axios from "axios"
 import SEO from "../../components/seo"
 import Layout from "../../components/layout"
 import Button from "@material-ui/core/Button"
 import Spinner from "../../components/UI/Spinner/Spinner"
+import Helmet from "react-helmet"
 
 import "./all-locations.css"
 
@@ -29,9 +31,10 @@ const allLocations: React.FC = () => {
   const [markers, setMarkers] = useState<JSX.Element[]>([])
   const [weather, setWeather] = useState("")
   const [loading, setLoading] = useState(false)
+  const [locations, setLocations] = useState<AllLocationData[]>([])
 
   useEffect(() => {
-    const url = "https://sudacode-travelapi.herokuapp.com/loc"
+    const url = "https://sudacode-travelapi.herokuapp.com/v2/loc"
     setLoading(true)
     axios
       .get(url)
@@ -39,11 +42,31 @@ const allLocations: React.FC = () => {
         setAllLocationData([...res.data])
         createMarkers(res.data)
         setLoading(false)
+        createLocationData(res.data)
       })
       .catch(err => {
         throw new Error(err)
       })
   }, [])
+
+  const createLocationData = (data: AllLocationData[]) => {
+    let temp = []
+    let counter = 0
+    for (let elt of data) {
+      const { lat, lng, locName, shortName, time } = elt
+      temp.push(
+        <Location
+          lat={lat}
+          lng={lng}
+          locName={locName}
+          shortName={shortName}
+          time={time}
+          key={counter}
+        />
+      )
+    }
+    setLocations(temp)
+  }
 
   const getWeather = (lat: number, lng: number) => {
     const url = `https://sudacode-travelapi.herokuapp.com/weather/${lat},${lng}`
@@ -77,6 +100,9 @@ const allLocations: React.FC = () => {
         description="All the locations that I have traveled to around the world."
         title="All Locations"
       />
+      <Helmet>
+        <style>{"body { background-color: #282c34 }"}</style>
+      </Helmet>
       <h2>All Locations</h2>
       <Button id="to-travel-button" variant="text" color="secondary">
         <Link to="/travel/" id="to-travel-link">
@@ -112,6 +138,7 @@ const allLocations: React.FC = () => {
           {markers}
         </MapContainer>
       </section>
+      <section id="locations-container">{locations}</section>
     </Layout>
   )
 }

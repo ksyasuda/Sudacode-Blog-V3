@@ -1,0 +1,22 @@
+.location-title {
+  color: dodgerblue;
+}
+
+.date {
+  color: white;
+}
+
+.location-item {
+  padding: 20px 5px 5px 5px;
+  text-align: center;
+  margin-top: 20px;
+  border: 2px solid #a8d385;
+  border-radius: 5px;
+  color: #e18253;
+}
+
+.latitude,
+.longitude {
+  font-weight: bold;
+  font-size: larger;
+}

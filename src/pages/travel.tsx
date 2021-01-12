@@ -7,9 +7,9 @@ import axios from "axios"
 import { Link } from "gatsby"
 import Spinner from "../components/UI/Spinner/Spinner"
 import TextField from "@material-ui/core/TextField"
+import Helmet from "react-helmet"
 
 import "./travel.css"
-import { LocalGasStation } from "@material-ui/icons"
 
 interface MapData {
   lat: number
@@ -163,9 +163,9 @@ const travel: React.FC = () => {
         ...prev,
         lat: lat,
         lng: lng,
-        name: name,
-        place_id: place_id,
-        tempName: tempName,
+        locName: name.trim(),
+        place_id: place_id.trim(),
+        shortName: shortName.trim(),
       }))
       if (!markers) setMarker(lat, lng)
       else moveMarker(lat, lng)
@@ -190,7 +190,8 @@ const travel: React.FC = () => {
       time: time,
     }
     // const url = process.env.TRAVEL_API_DB
-    const url = "https://gatsby-websitev2.firebaseio.com/all-locations.json"
+    const url =
+      "https://sudacode-website-v3-default-rtdb.firebaseio.com/all-locations.json"
     let response
     try {
       setLoading(true)
@@ -219,6 +220,9 @@ const travel: React.FC = () => {
         title="Travel"
         description="A travel app created with React.js and Node.js using Express and Nedb for the backend"
       />
+      <Helmet>
+        <style>{"body { background-color: #282c34 }"}</style>
+      </Helmet>
       <h2 style={{ color: "dodgerblue", fontFamily: "Open Sans" }}>
         Sudacode Travel Page
       </h2>

@@ -3,6 +3,10 @@
   justify-content: center;
 }
 
+.leaflet-container {
+  border-radius: 10px;
+}
+
 .travel-content {
   display: flex;
   flex-flow: column;
