@@ -295,6 +295,7 @@ const travel: React.FC = () => {
             variant="contained"
             color="primary"
             onClick={event => handleSend(event)}
+            disabled
           >
             Save Current Location
           </Button>
