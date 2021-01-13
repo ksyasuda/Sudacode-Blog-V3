@@ -10,7 +10,7 @@ body {
 
 #to-travel-button {
   position: relative;
-  bottom: 10px;
+  top: -10px;
 }
 
 .MuiInputBase-input {
