@@ -9,6 +9,7 @@ import React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 import Helmet from "react-helmet"
+import Footer from "../components/Footer/footer"
 import favicon from "../images/favicon.ico"
 
 import Header from "./Header/header"
@@ -47,7 +48,8 @@ const Layout: React.FC<LayoutProps> = ({ children, showBackground }) => {
         className="main-container"
       >
         <main>{children}</main>
-        <footer
+        <Footer />
+        {/* <footer
           style={{
             marginTop: `50px`,
             position: "relative",
@@ -61,7 +63,7 @@ const Layout: React.FC<LayoutProps> = ({ children, showBackground }) => {
           <a style={{ color: "#bca56c" }} href="https://www.gatsbyjs.com">
             Gatsby
           </a>
-        </footer>
+        </footer> */}
       </div>
     </>
   )
