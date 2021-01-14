@@ -51,5 +51,11 @@ module.exports = {
         linkStyles: true,
       },
     },
+    {
+      resolve: "gatsby-plugin-offline",
+      options: {
+        precachePages: ['/blog/*', '/index/', '/travel/']
+      }
+    },
   ],
 }
