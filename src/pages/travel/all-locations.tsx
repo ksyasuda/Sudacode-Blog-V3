@@ -103,7 +103,7 @@ const allLocations: React.FC = () => {
       <Helmet>
         <style>{"body { background-color: #282c34 }"}</style>
       </Helmet>
-      <h2>All Locations</h2>
+      <h2 style={{color: 'dodgerblue'}}>All Locations</h2>
       <Button id="to-travel-button" variant="text" color="secondary">
         <Link to="/travel/" id="to-travel-link">
           To Travel

@@ -23,8 +23,8 @@ const location: React.FC<LocationData> = ({
     <section key={key} className="location-item">
       <h2 className="location-title">{locName}</h2>
       <p className="date">{new Date(time).toLocaleString("en-US")}</p>
-      <p className="latitude">Latitude: {lat}</p>
-      <p className="longitude">Longitude: {lng}</p>
+      <p className="latitude">Latitude: {lat.toFixed(2)}</p>
+      <p className="longitude">Longitude: {lng.toFixed(2)}</p>
     </section>
   )
 }
