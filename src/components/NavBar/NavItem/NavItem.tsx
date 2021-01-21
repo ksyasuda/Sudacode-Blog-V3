@@ -15,7 +15,7 @@ interface NavItemProps {
 const NavItem: React.FC<NavItemProps> = props => {
   const { to, startIcon, cname, text, show } = props
   return show ? (
-    <Link to={to}>
+    <Link style={{ textDecoration: "none" }} to={to}>
       <Button
         variant="text"
         color="secondary"

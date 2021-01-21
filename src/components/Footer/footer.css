@@ -1,4 +1,16 @@
 #my-links {
+  display: flex;
+  flex-wrap: wrap;
   position: relative;
   top: -10px;
+}
+
+.my-link {
+  text-decoration: none;
+}
+
+@media (max-width: 600px) {
+  .my-link {
+    width: 40%;
+  }
 }
