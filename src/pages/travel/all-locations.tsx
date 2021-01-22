@@ -30,7 +30,7 @@ const allLocations: React.FC = () => {
   const [allLocationData, setAllLocationData] = useState<AllLocationData[]>([])
   const [markers, setMarkers] = useState<JSX.Element[]>([])
   const [weather, setWeather] = useState("")
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(false)
   const [locations, setLocations] = useState<AllLocationData[]>([])
 
   useEffect(() => {
@@ -41,7 +41,7 @@ const allLocations: React.FC = () => {
       .then(res => {
         setAllLocationData([...res.data])
         createMarkers(res.data)
-        // setLoading(false)
+        setLoading(false)
         createLocationData(res.data)
       })
       .catch(err => {
