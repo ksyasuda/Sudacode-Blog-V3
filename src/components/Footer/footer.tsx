@@ -57,7 +57,7 @@ const Footer: React.FC = () => {
           text="Email"
           icon={<MailIcon />}
         />
-        <MediaLink url={resumeUrl} text="Resume" icon={<AttachFileIcon />} />
+        <MediaLink download url={resumeUrl} text="Resume" icon={<AttachFileIcon />} />
       </section>
       <section id="copyright">
         @ Kyle Yasuda {new Date().getFullYear()}, Built with{" "}

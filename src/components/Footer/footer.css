@@ -3,6 +3,7 @@
   flex-wrap: wrap;
   position: relative;
   top: -10px;
+  justify-content: center;
 }
 
 .my-link {
