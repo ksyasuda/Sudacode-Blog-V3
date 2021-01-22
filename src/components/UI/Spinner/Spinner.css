@@ -9,11 +9,15 @@
     left: 28%;
     top: 35%;
   }
+
+  .MuiCircularProgress-svg {
+    border: none;
+  }
 }
 
 @media (max-width: 600px) {
   .spinner {
-    left: 12%;
+    left: 6%;
     top: 34%;
   }
 }

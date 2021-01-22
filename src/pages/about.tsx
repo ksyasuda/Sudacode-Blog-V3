@@ -99,7 +99,11 @@ export default function about() {
           Check out my Wakatime profile here
         </p>
         <div className="WakaTime">
-          <a href="https://wakatime.com" rel="noreferrer" target="_blank">
+          <a
+            href="https://wakatime.com/@sudacode"
+            rel="noreferrer"
+            target="_blank"
+          >
             <img
               src="https://wakatime.com/share/@cb761320-ecf4-4a76-a931-6d29dae94b27/7498581f-3aec-4a41-8f59-9775cef05932.png"
               className="WakaImg"
