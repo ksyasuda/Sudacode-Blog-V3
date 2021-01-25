@@ -218,7 +218,7 @@ const travel: React.FC = () => {
     <Layout showBackground>
       <SEO
         title="Travel"
-        description="A travel app created with React.js and Node.js using Express and Nedb for the backend"
+        description="Travel page of my website where I can log places that I have travelled to around the world."
       />
       <Helmet>
         <style>{"body { background-color: #282c34 }"}</style>
