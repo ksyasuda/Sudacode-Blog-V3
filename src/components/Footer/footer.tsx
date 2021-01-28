@@ -22,7 +22,7 @@ interface ResumeQuery {
 const Footer: React.FC = () => {
   const data: ResumeQuery = useStaticQuery(graphql`
     {
-      allFile(filter: { name: { eq: "YasudaKyleResume2020" } }) {
+      allFile(filter: { name: { eq: "YasudaKyleResume2021" } }) {
         edges {
           node {
             publicURL
