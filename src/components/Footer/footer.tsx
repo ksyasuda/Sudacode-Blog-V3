@@ -59,7 +59,7 @@ const Footer: React.FC = () => {
           icon={<RedditIcon />}
         />
         <MediaLink
-          url={`mailto:ksyasuda@umich.edu`}
+          url={`mailto:the.sudacode@gmail.com`}
           text="Email"
           icon={<MailIcon />}
         />
