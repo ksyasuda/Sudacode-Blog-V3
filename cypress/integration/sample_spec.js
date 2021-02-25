@@ -27,4 +27,11 @@ describe('My Frist Test', () => {
 			}
 		})
 	})
+
+	it('Checks that the blog button sends to the blog page', () => {
+		cy.get(':nth-child(5) > a > .MuiButtonBase-root > .MuiButton-label').click()
+		cy.url().should('eq', 'http://localhost:8000/blog/')
+		const posts = cy.get('.postContainer')
+		posts.should('have.length', 6)
+	})
 })
