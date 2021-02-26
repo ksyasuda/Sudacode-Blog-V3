@@ -34,4 +34,12 @@ describe('My Frist Test', () => {
 		const posts = cy.get('.postContainer')
 		posts.should('have.length', 6)
 	})
+
+	it('Checks that the search bar on the travel page works', () => {
+		cy.get(':nth-child(7) > a > .MuiButtonBase-root > .MuiButton-label').click()
+		cy.get('#searchbox').type('ann arbor')
+		cy.get('#travel-searchbutton').click()
+		cy.get('#lat').should('contain', 42.28)
+		cy.get('#lng').should('contain', -83.74)
+	})
 })
