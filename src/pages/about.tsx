@@ -26,8 +26,7 @@ export default function about() {
         <section className="AboutContainer">
           <p className="AboutParagraph">I'm Kyle Yasuda.</p>
           <p className="AboutParagraph">
-            I'm a Senior at the University of Michigan - Ann Arbor studying
-            Computer Science.
+            I'm a Software Engineer Intern at Westlake Financial Services
           </p>
           <p className="AboutParagraph">
             It was during my sophomore year of High School where I took my first
