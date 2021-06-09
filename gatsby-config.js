@@ -25,10 +25,10 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `sudacode`,
+        short_name: `sudacode`,
         start_url: `/`,
-        background_color: `#663399`,
+        background_color: `#282c34`,
         theme_color: `#663399`,
         display: `minimal-ui`,
         icon: `src/images/suda-circle.png`, // This path is relative to the root of the site.
@@ -54,8 +54,8 @@ module.exports = {
     {
       resolve: "gatsby-plugin-offline",
       options: {
-        precachePages: ['/blog/*', '/index/', '/travel/']
-      }
+        precachePages: ["/blog/*", "/index/", "/travel/"],
+      },
     },
   ],
 }
